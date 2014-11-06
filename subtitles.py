@@ -1,7 +1,7 @@
 import os,sys,hashlib
 movie_exts=["avi","mp4","mkv","mpg","mpeg","mov","rm","vob","wmv","flv","3gp"]
 if len(sys.argv)==1:
-      folder='H:/Movies/'
+      folder='H:\\Movies\\'
 else:
       folder=sys.argv[1]
 try:
@@ -22,15 +22,15 @@ def check(file):
 
       
 def getFiles(path):
-      files=os.listdir(path)
+      
       returnList=[]
-      for file in files:
-            extension=file.split('.')[-1]
-            
-            if  extension in movie_exts:
-                  returnList.append(path+file)
+      
+
+      for root, dirs, files in os.walk(path, topdown=False):
+          for name in files:
+                if name.split('.')[-1] in movie_exts:
+                      returnList.append(os.path.join(root,name))
       return returnList
-            
 def getHash(name):
         readsize = 64 * 1024
         with open(name, 'rb') as f:

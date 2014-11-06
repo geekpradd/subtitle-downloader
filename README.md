@@ -17,7 +17,7 @@ After that just run the script, and the subtitles will be downloaded..
 For downloading from the terminal, type the following in the terminal:
 
 ```
-python subtitles-folder.py [Movie Folder Location]
+python subtitles.py [Movie Folder Location]
 ```
 ##About
 
